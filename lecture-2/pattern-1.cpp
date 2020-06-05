@@ -3,16 +3,24 @@
 // 4 5 6
 // 7 8 9 10
 
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 
-int main(){
+int main()
+{
 
-    int count = 1;
+    int count = 1, n;
+    cin >> n;
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    cout << endl;
 
-    for(int i = 1; i <= 4; i++){
-        for(int j = 1; j <= i; j++){
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
             cout << count << " ";
             count++;
         }
