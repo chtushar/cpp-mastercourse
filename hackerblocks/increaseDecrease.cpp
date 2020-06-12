@@ -16,16 +16,18 @@ int main()
         cin >> a[i];
     }
 
+    //strictly decreasing
     for (int i = 0; i < n; i++)
     {
         if (a[i] < a[i + 1])
         {
             dec = true;
-            flag = i;
+            flag = i; //setting flag equal to position
             break;
         }
     }
 
+    //strictly increasing
     for (int i = flag; i < n - 1; i++)
     {
         if (a[i] < a[i + 1])
