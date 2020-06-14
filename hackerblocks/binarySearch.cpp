@@ -2,31 +2,26 @@
 
 using namespace std;
 
-int binarySearch(long a[], int n, int k)
+int binarySearch(long arr[], int l, int r, int x)
 {
-    int s = 0;
-    int e = n - 1;
-
-    while (s <= e)
+    while (l <= r)
     {
-        int mid = (s + e / 2);
+        int m = l + (r - l) / 2;
 
-        if (a[mid] == k)
+        if (arr[m] == x)
         {
-            return mid;
+            return m;
         }
-        else if (a[mid] > k)
+
+        if (arr[m] < x)
         {
-            e = mid - 1;
-            continue;
+            l = m + 1;
         }
         else
         {
-            s = mid + 1;
-            continue;
+            r = m - 1;
         }
     }
-
     return -1;
 }
 
@@ -46,7 +41,7 @@ int main()
     int k;
     cin >> k;
 
-    cout << binarySearch(a, n, k) << endl;
+    cout << binarySearch(a, 0, n - 1, k) << endl;
 
     return 0;
 }
