@@ -16,18 +16,21 @@ int main()
             cin >> a[i][j];
         }
     }
-
-    for (int i = 0; i < m; i++)
+    // cout << "mosina"<<endl;
+    for (int j = 0; j < n; j++)
     {
-        for (int j = 0; j < n; j++)
+        if (j % 2 == 0)
         {
-            if (i % 2 == 0)
+            for (int i = 0; i < m; i++)
             {
-                cout << a[j][i] << ", ";
+                cout << a[i][j] << ", ";
             }
-            else
+        }
+        else
+        {
+            for (int i = m - 1; i >= 0; i--)
             {
-                cout << a[n - 1 - j][i] << ", ";
+                cout << a[i][j] << ", ";
             }
         }
     }
