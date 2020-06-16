@@ -28,7 +28,7 @@ int main()
     }
 
     //strictly increasing
-    for (int i = flag; i < n - 1; i++)
+    for (int i = flag; i <= n - 1; i++)
     {
         if (a[i] < a[i + 1])
         {
