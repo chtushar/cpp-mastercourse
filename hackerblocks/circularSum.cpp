@@ -24,20 +24,7 @@ int main()
 
         int tempMax = 0, max = 0;
 
-        for (int i = 0; i < n; i++)
-        {
-            tempMax = tempMax + a[i];
-
-            if (tempMax < 0)
-            {
-                tempMax = 0;
-            }
-            if (max < tempMax)
-            {
-                max = tempMax;
-            }
-        }
-
+        
         cout << max << endl;
     }
 
