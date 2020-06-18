@@ -5,29 +5,22 @@ using namespace std;
 int main()
 {
 
-    int n, a[1000000], count[4] = {0}, res[1000000];
+    int n, count[3] = {0};
     cin >> n;
 
     for (int i = 0; i < n; i++)
     {
-        cin >> a[i];
-        count[a[i] + 1] += 1;
+        int x;
+        cin >> x;
+        count[x]++;
     }
 
-    for (int i = 1; i < 4; i++)
+    for (int i = 0; i < 3; i++)
     {
-        count[i] += count[i - 1];
-    }
-
-    for (int i = 0; i < n; i++)
-    {
-        res[count[a[i]] + 1] = a[i];
-        --count[a[i]];
-    }
-
-    for (int i = 0; i < n; i++)
-    {
-        cout << res[i] << endl;
+        for (int j = 0; j < count[i]; j++)
+        {
+            cout << i << endl;
+        }
     }
 
     return 0;
