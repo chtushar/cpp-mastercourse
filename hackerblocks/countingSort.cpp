@@ -1,55 +1,55 @@
 #include <iostream>
-#include <vector>
 #include <bits/stdc++.h>
 
 using namespace std;
 
-void countSort(vector<int> a, int m)
+void countSort(int *a, int n, int max)
 {
+    int result[n + 1];
+    int count[max + 1] = {0};
 
-    int count[m] = {0}, result[a.size()];
-
-    for (int i = 0; i < a.size(); i++)
+    for (int i = 1; i <= n; i++)
     {
-        ++count[a[i]];
+        count[a[i]]++;
     }
-
-    for (int i = 1; i <= m; i++)
+    for (int i = 1; i <= max; i++)
     {
         count[i] += count[i - 1];
     }
-    for (int i = 0; i < a.size(); i++)
+    for (int i = n; i >= 1; i--)
     {
-        result[count[a[i]] - 1] = a[i];
-        --count[a[i]];
+        result[count[a[i]]] = a[i];
+        count[a[i]] -= 1;
     }
-    for (int i = 0; i < a.size(); i++)
+    for (int i = 1; i <= n; i++)
     {
-        cout << result[i] << " ";
+        a[i] = result[i];
     }
 }
 
 int main()
 {
 
-    vector<int> a;
     int max = INT_MIN;
     long n;
     cin >> n;
+    int a[n + 1];
 
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <= n; i++)
     {
-        int x;
-        cin >> x;
-        a.push_back(x);
-
-        if (max < x)
+        cin >> a[i];
+        if (max < a[i])
         {
-            max = x;
+            max = a[i];
         }
     }
 
-    countSort(a, max);
+    countSort(a, n, max);
+
+    for (int i = 1; i <= n; i++)
+    {
+        cout << a[i] << " ";
+    }
 
     return 0;
 }
