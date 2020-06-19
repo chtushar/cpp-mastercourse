@@ -1,6 +1,15 @@
 #include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
+
+bool swapThem(string x, string y)
+{
+    string xy = x.append(y);
+    string yx = y.append(x);
+
+    return xy < yx;
+}
 
 int main()
 {
@@ -10,36 +19,35 @@ int main()
 
     while (t--)
     {
-        int n, a[100], flag = 0;
+        int n;
         cin >> n;
-
+        vector<string> a;
         for (int i = 0; i < n; i++)
         {
-            cin >> a[i];
+            string s;
+            cin >> s;
+            a.push_back(s);
         }
 
         for (int i = 0; i < n - 1; i++)
         {
-            for (int j = 0; j < n - 1; j++)
+            for (int j = i + 1; j < n; j++)
             {
-                if (a[j] > a[j + 1])
+                if (swapThem(a[i], a[j]))
                 {
-                    flag++;
-                    swap(a[j], a[j + 1]);
+                    swap(a[i], a[j]);
                 }
             }
-
-            //for optimization
-            if (flag == 0)
-            {
-                break;
-            }
         }
 
-        for (int i = n - 1; i >= 0; i--)
+        string ans = "";
+
+        for (int i = 0; i < a.size(); i++)
         {
-            cout << a[i];
+            ans.append(a[i]);
         }
+
+        cout << ans << endl;
     }
 
     return 0;
