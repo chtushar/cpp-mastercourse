@@ -1,21 +1,35 @@
 #include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 int main()
 {
-    int r, c, a[100000][100000];
-
-    cin >> r >> c;
-
-    for (int i = 0; i < r; i++)
+    short t;
+    cin >> t;
+    while (t--)
     {
-        for (int j = 0; j < c; j++)
-        {
-            cin >> a[i][j];
-        }
-    }
+        int n, max = INT_MIN, temp = 0;
+        cin >> n;
+        int a[n];
 
-    
-    return 0;
+        for (int i = 0; i < n; i++)
+        {
+            cin >> a[i];
+        }
+        for (int i = 0; i < n; i++)
+        {
+            temp = temp + a[i];
+            if (max < temp)
+            {
+                max = temp;
+            }
+            if (temp < 0)
+            {
+                temp = 0;
+            }
+        }
+
+        cout << max << endl;
+    }
 }
