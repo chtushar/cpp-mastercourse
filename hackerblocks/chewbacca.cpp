@@ -1,28 +1,53 @@
-#include <iostream>
 #include <bits/stdc++.h>
-
 using namespace std;
+
+#define ll long long
+
+ll digits(ll n)
+{
+    ll count = 0;
+    while (n > 0)
+    {
+        n = n / 10;
+        count++;
+    }
+    return count;
+}
 
 int main()
 {
-    string s;
-    cin >> s;
+    ll n;
+    cin >> n;
 
-    for (int i = 0; i < s.length(); i++)
+    ll d = digits(n);
+    int arr[100000];
+
+    // STORING THE NUMBER IN AN ARRAY
+
+    for (ll i = 0; i < d; i++)
     {
-        int a = s[i] - 48;
-        if (a >= 5)
+        ll key = n % 10;
+        arr[d - i - 1] = key;
+        n = n / 10;
+    }
+
+    for (ll i = 0; i < d; i++)
+    {
+        if (i == 0 && (arr[i] == 9))
         {
-            a = 9 - a;
+            cout << arr[i];
         }
-
-        s.replace(i, 1, to_string(a));
+        else
+        {
+            if (arr[i] >= 5)
+            {
+                cout << 9 - arr[i];
+            }
+            else
+            {
+                cout << arr[i];
+            }
+        }
     }
-    if (s.size() != 1)
-    {
-        s.erase(0, min(s.find_first_not_of('0'), s.size() - 1));
-    }
-    cout << s;
-
     return 0;
 }
