@@ -1,5 +1,3 @@
-#include <iostream>
-#include <vector>
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -19,7 +17,7 @@ int main()
         s.push_back(a);
     }
 
-    sort(s.begin(), s.end());
+    sort(s.begin(), s.end(), compare);
 
     for (int i = 0; i < n; i++)
     {
