@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void permut(char a[], int i, char temp[])
+void permut(char a[], int i)
 {
 
     if (a[i] == '\0')
@@ -14,20 +14,16 @@ void permut(char a[], int i, char temp[])
     for (int j = i; a[j] != '\0'; j++)
     {
         swap(a[i], a[j]);
-        permut(a, i + 1, temp);
+        permut(a, i + 1);
         swap(a[i], a[j]); //backtracking
     }
 }
 
 int main()
 {
-    char a[10], temp[10];
+    char a[] = "ABC";
 
-    cin.getline(a, 10);
-
-    strcpy(temp, a);
-
-    permut(a, 0, temp);
+    permut(a, 0);
 
     return 0;
 }
