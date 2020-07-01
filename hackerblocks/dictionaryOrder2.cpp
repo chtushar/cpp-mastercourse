@@ -8,7 +8,7 @@ void permut(char a[], int i, char temp[], string out[])
 
     if (a[i] == '\0')
     {
-        if (strcmp(temp, a) > 0)
+        if (strcmp(temp, a) < 0)
         {
             out[pos] = a;
             pos++;
