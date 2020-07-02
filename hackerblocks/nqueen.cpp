@@ -54,21 +54,12 @@ bool isSafe(int board[][100], int i, int j, int n)
     return true;
 }
 
-bool solveNQueen(int board[][100], int i, int n, int *count)
+bool solveNQueen(int board[][100], int i, int n, int *c)
 {
     if (i == n)
     {
-        for (int x = 0; x < n; x++)
-        {
-            for (int y = 0; y < n; y++)
-            {
-                cout << board[x][y] << " ";
-            }
-            cout << endl;
-        }
-        cout << endl;
-
-        return true;
+        *c += 1;
+        return false;
     }
 
     int col;
@@ -78,7 +69,7 @@ bool solveNQueen(int board[][100], int i, int n, int *count)
         if (isSafe(board, i, col, n))
         {
             board[i][col] = 1;
-            bool down = solveNQueen(board, i + 1, n, count);
+            bool down = solveNQueen(board, i + 1, n, c);
 
             if (down)
             {
@@ -98,6 +89,8 @@ int main()
     cin >> n;
 
     solveNQueen(board, 0, n, &count);
+
+    cout << count << endl;
 
     return 0;
 }
