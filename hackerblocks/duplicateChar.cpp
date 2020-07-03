@@ -14,9 +14,12 @@ void duplicateChar(char *a, int t)
         }
 
         a[t + 1] = '*';
+        duplicateChar(a, t);
     }
-
-    duplicateChar(a, t + 1);
+    else
+    {
+        duplicateChar(a, t + 1);
+    }
 
     return;
 }
@@ -27,5 +30,6 @@ int main()
     cin >> a;
     duplicateChar(a, 0);
     cout << a;
+    cout << endl;
     return 0;
 }

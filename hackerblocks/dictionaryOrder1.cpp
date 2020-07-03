@@ -1,44 +1,53 @@
 #include <bits/stdc++.h>
-
+#include <math.h>
 using namespace std;
 
-int pos = 0;
-void permut(char a[], int i, char temp[], string out[])
+#define rep(i, n) for (int i = 0; i < n; i++)
+//#define repi(j,n) for(int i = j ; i< n ; i++)
+vector<string> v;
+bool myCompare(string a, string b)
 {
-
-    if (a[i] == '\0')
+    if (a > b)
     {
-        if (strcmp(temp, a) > 0)
-        {
-            out[pos] = a;
-            pos++;
-        }
+        return true;
+    }
+    return false;
+}
 
+void permut(string s, string t, int i)
+{
+    if (s[i] == '\0')
+    {
+        if (myCompare(s, t))
+        {
+            v.push_back(s);
+            // cout << s << endl ;
+        }
         return;
     }
 
-    for (int j = i; a[j] != '\0'; j++)
+    for (int j = i; s[j] != '\0'; j++)
     {
-        swap(a[i], a[j]);
-        permut(a, i + 1, temp, out);
-        swap(a[i], a[j]); //backtracking
+        swap(s[i], s[j]);
+        permut(s, t, i + 1);
+        swap(s[i], s[j]);
     }
+
+    return;
 }
 
 int main()
 {
-    char a[10], temp[10];
-    string out[10000];
-    cin.getline(a, 10);
 
-    strcpy(temp, a);
+    string s, t;
+    cin >> s;
 
-    permut(a, 0, temp, out);
-    sort(out, out + pos);
-
-    for (int i = 0; i <= pos; i++)
+    t = s;
+    permut(s, t, 0);
+    sort(v.begin(), v.end());
+    for (int i = 0; i < v.size(); i++)
     {
-        cout << out[i] << endl;
+        cout << v[i] << endl;
     }
 
     return 0;
