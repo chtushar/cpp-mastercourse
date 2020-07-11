@@ -3,7 +3,7 @@ using namespace std;
 
 void duplicateChar(char *a, int t)
 {
-    if (t == strlen(a))
+    if (t >= strlen(a))
         return;
 
     if (a[t] == a[t + 1])
@@ -14,7 +14,7 @@ void duplicateChar(char *a, int t)
         }
 
         a[t + 1] = '*';
-        duplicateChar(a, t);
+        duplicateChar(a, t + 2);
     }
     else
     {

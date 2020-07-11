@@ -77,7 +77,7 @@ int main()
     }
     else
     {
-        cout << -1 << endl;
+        cout << "NO PATH FOUND" << endl;
     }
 
     return 0;
