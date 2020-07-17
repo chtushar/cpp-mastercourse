@@ -79,7 +79,7 @@ int main()
     }
     else
     {
-        cout << "Path doesn't exist" << endl;
+        cout << -1 << endl;
     }
 
     return 0;
